@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20220923 17:07:17.853" rpa="false" schemaversion="3">
+<suite id="s1" name="Closeaccount" source="/home/sharifah/RF/closeaccount.robot">
+<test id="s1-t1" name="Login to Deriv" line="35">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://app.deriv.com/account/closing-account</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220923 17:07:17.936" level="INFO">Opening browser 'chrome' to base url 'https://app.deriv.com/account/closing-account'.</msg>
+<status status="PASS" starttime="20220923 17:07:17.936" endtime="20220923 17:07:24.599"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220923 17:07:24.599" endtime="20220923 17:07:24.704"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${email_field}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220923 17:07:24.704" endtime="20220923 17:07:24.726"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email_field}</arg>
+<arg>sharifah@besquare.com.my</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:24.727" level="INFO">Typing text 'sharifah@besquare.com.my' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20220923 17:07:24.726" endtime="20220923 17:07:24.786"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_field}</arg>
+<arg>Besquare_2022</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:24.786" level="INFO">Typing text 'Besquare_2022' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20220923 17:07:24.786" endtime="20220923 17:07:24.841"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:24.841" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220923 17:07:24.841" endtime="20220923 17:07:26.900"/>
+</kw>
+<status status="PASS" starttime="20220923 17:07:17.935" endtime="20220923 17:07:26.901"/>
+</test>
+<test id="s1-t2" name="Validation TC01" line="43">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${close_account_info}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220923 17:07:26.902" endtime="20220923 17:07:27.349"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${close_account_info}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220923 17:07:27.354" level="INFO">Current page contains element '//div[@class='closing-account__information']'.</msg>
+<status status="PASS" starttime="20220923 17:07:27.349" endtime="20220923 17:07:27.354"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${cancel_button}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220923 17:07:27.367" level="INFO">Current page contains element '//*[@class='dc-btn dc-btn--secondary dc-btn__large closing-account__button--cancel']'.</msg>
+<status status="PASS" starttime="20220923 17:07:27.355" endtime="20220923 17:07:27.367"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${close_account_button}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220923 17:07:27.381" level="INFO">Current page contains element '//*[@class='dc-btn dc-btn--primary dc-btn__large closing-account__button--close-account']'.</msg>
+<status status="PASS" starttime="20220923 17:07:27.367" endtime="20220923 17:07:27.382"/>
+</kw>
+<status status="PASS" starttime="20220923 17:07:26.901" endtime="20220923 17:07:27.382"/>
+</test>
+<test id="s1-t3" name="Security and Privacy Policy TC02" line="49">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${security_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:27.383" level="INFO">Clicking element '//a[@class='link']'.</msg>
+<status status="PASS" starttime="20220923 17:07:27.383" endtime="20220923 17:07:27.474"/>
+</kw>
+<status status="PASS" starttime="20220923 17:07:27.382" endtime="20220923 17:07:27.475"/>
+</test>
+<test id="s1-t4" name="Cancel TC03" line="52">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${cancel_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:27.476" level="INFO">Clicking element '//*[@class='dc-btn dc-btn--secondary dc-btn__large closing-account__button--cancel']'.</msg>
+<status status="PASS" starttime="20220923 17:07:27.476" endtime="20220923 17:07:27.569"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//*[@aria-label="Loading interface..."]</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20220923 17:07:27.570" endtime="20220923 17:07:29.935"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${homepage}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220923 17:07:29.950" level="INFO">Current page contains element '//h1[@class='dc-text']'.</msg>
+<status status="PASS" starttime="20220923 17:07:29.936" endtime="20220923 17:07:29.950"/>
+</kw>
+<status status="PASS" starttime="20220923 17:07:27.475" endtime="20220923 17:07:29.950"/>
+</test>
+<test id="s1-t5" name="Back to Close Account TC13" line="57">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${profile_icon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:29.951" level="INFO">Clicking element '//a[@class='account-settings-toggle']'.</msg>
+<status status="PASS" starttime="20220923 17:07:29.951" endtime="20220923 17:07:30.134"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${close_account_menu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:30.135" level="INFO">Clicking element 'dc_close-your-account_link'.</msg>
+<status status="PASS" starttime="20220923 17:07:30.134" endtime="20220923 17:07:30.210"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${close_account_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:30.211" level="INFO">Clicking element '//*[@class='dc-btn dc-btn--primary dc-btn__large closing-account__button--close-account']'.</msg>
+<status status="PASS" starttime="20220923 17:07:30.210" endtime="20220923 17:07:30.263"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${back_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:30.264" level="INFO">Clicking element ''.</msg>
+<msg timestamp="20220923 17:07:30.440" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220923 17:07:30.440" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=104.0.5112.101)
+Stacktrace:
+#0 0x55673e695403 &lt;unknown&gt;
+#1 0x55673e49b64b &lt;unknown&gt;
+#2 0x55673e4d3de7 &lt;unknown&gt;
+#3 0x55673e4c7e49 &lt;unknown&gt;
+#4 0x55673e4f0a02 &lt;unknown&gt;
+#5 0x55673e4c7703 &lt;unknown&gt;
+#6 0x55673e4f0b0e &lt;unknown&gt;
+#7 0x55673e503c74 &lt;unknown&gt;
+#8 0x55673e4f08f3 &lt;unknown&gt;
+#9 0x55673e4c60d8 &lt;unknown&gt;
+#10 0x55673e4c7205 &lt;unknown&gt;
+#11 0x55673e6dce3d &lt;unknown&gt;
+#12 0x55673e6dfdb6 &lt;unknown&gt;
+#13 0x55673e6c613e &lt;unknown&gt;
+#14 0x55673e6e09b5 &lt;unknown&gt;
+#15 0x55673e6ba970 &lt;unknown&gt;
+#16 0x55673e6fd228 &lt;unknown&gt;
+#17 0x55673e6fd3bf &lt;unknown&gt;
+#18 0x55673e717abe &lt;unknown&gt;
+#19 0x7f35768e8609 &lt;unknown&gt;
+</msg>
+<status status="FAIL" starttime="20220923 17:07:30.263" endtime="20220923 17:07:30.444"/>
+</kw>
+<status status="FAIL" starttime="20220923 17:07:29.950" endtime="20220923 17:07:30.444">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=104.0.5112.101)
+Stacktrace:
+#0 0x55673e695403 &lt;unknown&gt;
+#1 0x55673e49b64b &lt;unknown&gt;
+#2 0x55673e4d3de7 &lt;unknown&gt;
+#3 0x55673e4c7e49 &lt;unknown&gt;
+#4 0x55673e4f0a02 &lt;unknown&gt;
+#5 0x55673e4c7703 &lt;unknown&gt;
+#6 0x55673e4f0b0e &lt;unknown&gt;
+#7 0x55673e503c74 &lt;unknown&gt;
+#8 0x55673e4f08f3 &lt;unknown&gt;
+#9 0x55673e4c60d8 &lt;unknown&gt;
+#10 0x55673e4c7205 &lt;unknown&gt;
+#11 0x55673e6dce3d &lt;unknown&gt;
+#12 0x55673e6dfdb6 &lt;unknown&gt;
+#13 0x55673e6c613e &lt;unknown&gt;
+#14 0x55673e6e09b5 &lt;unknown&gt;
+#15 0x55673e6ba970 &lt;unknown&gt;
+#16 0x55673e6fd228 &lt;unknown&gt;
+#17 0x55673e6fd3bf &lt;unknown&gt;
+#18 0x55673e717abe &lt;unknown&gt;
+#19 0x7f35768e8609 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t6" name="Close Account TC04, TC05" line="63">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${close_account_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:30.445" level="INFO">Clicking element '//*[@class='dc-btn dc-btn--primary dc-btn__large closing-account__button--close-account']'.</msg>
+<msg timestamp="20220923 17:07:30.566" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220923 17:07:30.566" level="FAIL">Element with locator '//*[@class='dc-btn dc-btn--primary dc-btn__large closing-account__button--close-account']' not found.</msg>
+<status status="FAIL" starttime="20220923 17:07:30.445" endtime="20220923 17:07:30.568"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox1}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.568" endtime="20220923 17:07:30.568"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox2}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.568" endtime="20220923 17:07:30.568"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox3}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox4}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox5}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox6}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox7}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox8}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${checkbox9}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${textbox1}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${textbox2}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.569" endtime="20220923 17:07:30.569"/>
+</kw>
+<status status="FAIL" starttime="20220923 17:07:30.444" endtime="20220923 17:07:30.570">Element with locator '//*[@class='dc-btn dc-btn--primary dc-btn__large closing-account__button--close-account']' not found.</status>
+</test>
+<test id="s1-t7" name="No Checkbox Selected TC07" line="77">
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox1}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<msg timestamp="20220923 17:07:30.571" level="INFO">Verifying checkbox '//input[@name='financial-priorities']//parent::label' is not selected.</msg>
+<msg timestamp="20220923 17:07:30.719" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220923 17:07:30.719" level="FAIL">Checkbox with locator '//input[@name='financial-priorities']//parent::label' not found.</msg>
+<status status="FAIL" starttime="20220923 17:07:30.571" endtime="20220923 17:07:30.720"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox2}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.720" endtime="20220923 17:07:30.720"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox3}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.720" endtime="20220923 17:07:30.720"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox4}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.721" endtime="20220923 17:07:30.721"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox5}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.721" endtime="20220923 17:07:30.721"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox6}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.721" endtime="20220923 17:07:30.721"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox7}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.721" endtime="20220923 17:07:30.721"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox8}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.721" endtime="20220923 17:07:30.721"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>${checkbox9}</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.721" endtime="20220923 17:07:30.721"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${disable_continue_button}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:30.721" endtime="20220923 17:07:30.721"/>
+</kw>
+<status status="FAIL" starttime="20220923 17:07:30.570" endtime="20220923 17:07:30.724">Checkbox with locator '//input[@name='financial-priorities']//parent::label' not found.</status>
+</test>
+<test id="s1-t8" name="1 Checkbox Selected TC09" line="89">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${checkbox1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:30.726" level="INFO">Clicking element '//input[@name='financial-priorities']//parent::label'.</msg>
+<status status="PASS" starttime="20220923 17:07:30.725" endtime="20220923 17:07:30.780"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${continue_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:30.780" level="INFO">Clicking element '//*[@class='dc-btn dc-btn__effect dc-btn--primary dc-btn__large']'.</msg>
+<status status="PASS" starttime="20220923 17:07:30.780" endtime="20220923 17:07:30.863"/>
+</kw>
+<status status="PASS" starttime="20220923 17:07:30.725" endtime="20220923 17:07:30.863"/>
+</test>
+<test id="s1-t9" name="Confirmation Message TC14 and Go Back TC16" line="93">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${close_account_confirmation}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220923 17:07:30.864" endtime="20220923 17:07:30.907"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${close_account_confirmation}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220923 17:07:30.912" level="INFO">Current page contains element '//div[@class='account-closure-warning-modal']'.</msg>
+<status status="PASS" starttime="20220923 17:07:30.907" endtime="20220923 17:07:30.912"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${goback_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:30.913" level="INFO">Clicking element '//*[@class='dc-btn dc-btn__effect dc-btn--secondary dc-btn__large' and contains(.,'Go')]'.</msg>
+<status status="PASS" starttime="20220923 17:07:30.912" endtime="20220923 17:07:31.183"/>
+</kw>
+<status status="PASS" starttime="20220923 17:07:30.864" endtime="20220923 17:07:31.183"/>
+</test>
+<test id="s1-t10" name="3 Checkboxes Selected TC06, TC08 - Other Checkboxes Disabled" line="98">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${checkbox1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:31.185" level="INFO">Clicking element '//input[@name='financial-priorities']//parent::label'.</msg>
+<status status="PASS" starttime="20220923 17:07:31.184" endtime="20220923 17:07:31.462"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${checkbox2}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:31.463" level="INFO">Clicking element '//input[@name='stop-trading']//parent::label'.</msg>
+<status status="PASS" starttime="20220923 17:07:31.463" endtime="20220923 17:07:31.511"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${checkbox3}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 17:07:31.512" level="INFO">Clicking element '//input[@name='not-interested']//parent::label'.</msg>
+<status status="PASS" starttime="20220923 17:07:31.511" endtime="20220923 17:07:31.551"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${checkbox4}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<msg timestamp="20220923 17:07:31.721" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220923 17:07:31.721" level="FAIL">Element '//input[@name='another-website']//parent::label' is enabled.</msg>
+<status status="FAIL" starttime="20220923 17:07:31.551" endtime="20220923 17:07:31.721"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${checkbox5}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:31.722" endtime="20220923 17:07:31.722"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${checkbox6}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:31.722" endtime="20220923 17:07:31.722"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${checkbox7}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:31.722" endtime="20220923 17:07:31.722"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${checkbox8}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:31.722" endtime="20220923 17:07:31.722"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${checkbox9}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:31.722" endtime="20220923 17:07:31.722"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${continue_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220923 17:07:31.722" endtime="20220923 17:07:31.722"/>
+</kw>
+<status status="FAIL" starttime="20220923 17:07:31.184" endtime="20220923 17:07:31.722">Element '//input[@name='another-website']//parent::label' is enabled.</status>
+</test>
+<status status="FAIL" starttime="20220923 17:07:17.854" endtime="20220923 17:07:31.723"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="4" skip="0" id="s1" name="Closeaccount">Closeaccount</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
